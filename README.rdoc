@@ -1,3 +1,5 @@
+! Sign-In:  You can use my existing user if you want to (Lane@example.com, Password: 123456) or create your own.
+
 Elevator pitch:
 You've accumulated ingredients in the fridge that you're not sure what to do with, or maybe you're just in need of some fresh recipe ideas. Its Sunday night and you want to have a plan going into your current work week as to what meals you can make on each given day, and save those plans so that you're not left trying to figure it out each day while running out the door for work in the morning or after coming home exhausted in the evening.
 
