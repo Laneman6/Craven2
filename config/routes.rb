@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get "/options/:id", :controller => "options", :action => "show"
 
   # UPDATE
+
   get "/options/:id/edit", :controller => "options", :action => "edit"
   post "/update_option/:id", :controller => "options", :action => "update"
 
@@ -39,7 +40,7 @@ Rails.application.routes.draw do
   root 'plans#index'
 
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest
+  # The priority is based upon order of creation: first created 
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
 
