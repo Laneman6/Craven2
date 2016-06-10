@@ -1,0 +1,47 @@
+<div class="page-header">
+  <h3>Saved Recipes for <%= @plan.week_day %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <a href="/foods/new" class="btn btn-default btn-block">
+      <i class="fa fa-plus"></i>
+    </a>
+
+    <hr>
+
+
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th><h5>Recipe</h5> (Click for recipe / photos) </th>
+        <th><h5>Ingredients Necessary</h5></th>
+        <th><h5>Action</h5></th>
+      </tr>
+
+      <% @plan.options.each do |option| %>
+      <tr>
+        <td><a href="<%= option.source_link %>"><%= option.title %></a></td>
+        <td><%= option.description %></td>
+
+        <td>
+          <a href="/delete_option/<%= option.id %>" class="btn btn-default" rel="nofollow"><i class="fa fa-times" aria-hidden="true"></i>  Delete</a>
+        </td>
+      </tr>
+      <% end %>
+      </table>
+      <div class="btn-group btn-group-justified">
+        <a href="/foods/new" class="btn btn-default">
+          <i class="fa fa-calendar" aria-hidden="true"></i>  My Meal Plans
+        </a>
+        <a href="/delete_plan/<%= @plan.id %>" class="btn btn-default">
+          Delete entire <%= @plan.week_day %> Plan
+        </a>
+      </div>
+  </div>
+</div>

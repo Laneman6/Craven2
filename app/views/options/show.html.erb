@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Option #<%= @option.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+      <dt>Plan</dt>
+      <dd><%= @option.plan_id %></dd>
+
+      <dt>Title</dt>
+      <dd><%= @option.title %></dd>
+
+      <dt>Description</dt>
+      <dd><%= @option.description %></dd>
+
+      <dt>Recipe</dt>
+      <dd><%= @option.recipe %></dd>
+
+      <dt>Image</dt>
+      <dd><%= @option.image %></dd>
+
+      <dt>Source link</dt>
+      <dd><%= @option.source_link %></dd>
+
+      <dt>Difficulty</dt>
+      <dd><%= @option.difficulty %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/options" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/options/<%= @option.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_option/<%= @option.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

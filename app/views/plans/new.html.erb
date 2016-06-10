@@ -1,0 +1,59 @@
+<!-- Validation failure messages -->
+<% if @plan.errors.any? %>
+<% @plan.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Plan</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_plan" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      <!-- Hidden input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+      <!-- Label and input for week_day -->
+      <div class="form-group">
+        <label for="week_day" class="control-label">
+          When
+        </label>
+        <p>
+          <%= select_tag(:week_day, options_for_select([['Monday'], ['Tuesday'], ['Wednesday'], ['Thursday'], ['Friday'], ['Saturday'], ['Sunday']], :selected => params[:week_day]), :class => "form-control") %>
+        </p>
+      </div>
+
+      <!-- Label and input for category -->
+      <div class="form-group">
+        <label for="category" class="control-label">
+          Category
+        </label>
+
+        <p>
+          <%= select_tag(:category, options_for_select([['Breakfast'], ['Brunch'], ['Lunch'], ['Dinner']], :selected => params[:category]), :class => "form-control") %>
+        </p>
+
+      </div>
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="mm/dd/yyyy" class="form-control" value="<%= @plan.date %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Plan
+      </button>
+      or
+      <a href="/plans">Cancel</a>
+    </form>
+  </div>
+</div>

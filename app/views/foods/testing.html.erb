@@ -1,0 +1,133 @@
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th><center><h4>Possible Options</h4> (Click link below to view recipe)</center></th>
+        <th><center><h4>Primary Ingredients</h4></center></th>
+        <th><center><h4>Save to Meal Plan</h4></center></th>
+      </tr>
+
+      <tr>
+        <td><center><h6><a href="<%= @recipe_one %>" target="_blank"><%= @title_one %></a></h6></center></td>
+        <td><center><%= @list_one %></center></td>
+        <td>
+          <form action="/create_option" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <!-- Dropdown for plan_id -->
+            <%= select_tag(:plan_id, options_from_collection_for_select(Plan.all, :id, :week_day), :class => "form-control") %>
+            <button class="btn btn-default btn-block">
+              Save
+            </button>
+            <!-- Hidden input for title -->
+            <input type="hidden" name="title" value="<%= @title_one %>">
+            <!-- Hidden input for ingredients (aka description in model) list -->
+            <input type="hidden" name="description" value="<%= @list_one %>">
+            <!-- Hidden input for recipe (aka source_link in model) -->
+            <input type="hidden" name="source_link" value="<%= @recipe_one %>">
+          </form>
+        </td>
+      </tr>
+
+      <tr>
+        <td><center><h6><a href="<%= @recipe_two %>" target="_blank"><%= @title_two %></a></h6></center></td>
+        <td><center><%= @list_two %></center></td>
+        <td>
+          <form action="/create_option" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <!-- Dropdown for plan_id -->
+            <%= select_tag(:plan_id, options_from_collection_for_select(Plan.all, :id, :week_day), :class => "form-control") %>
+            <button class="btn btn-default btn-block">
+              Save
+            </button>
+            <!-- Hidden input for title -->
+            <input type="hidden" name="title" value="<%= @title_two %>">
+            <!-- Hidden input for ingredients (aka description in model) list -->
+            <input type="hidden" name="description" value="<%= @list_two %>">
+            <!-- Hidden input for recipe (aka source_link in model) -->
+            <input type="hidden" name="source_link" value="<%= @recipe_two %>">
+          </form>
+        </td>
+      </tr>
+
+      <tr>
+        <td><center><h6><a href="<%= @recipe_three %>" target="_blank"><%= @title_three %></a></h6></center></td>
+        <td><center><%= @list_three %></center></td>
+        <td>
+          <form action="/create_option" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <!-- Dropdown for plan_id -->
+            <%= select_tag(:plan_id, options_from_collection_for_select(Plan.all, :id, :week_day), :class => "form-control") %>
+            <button class="btn btn-default btn-block">
+              Save
+            </button>
+            <!-- Hidden input for title -->
+            <input type="hidden" name="title" value="<%= @title_three %>">
+            <!-- Hidden input for ingredients (aka description in model) list -->
+            <input type="hidden" name="description" value="<%= @list_three %>">
+            <!-- Hidden input for recipe (aka source_link in model) -->
+            <input type="hidden" name="source_link" value="<%= @recipe_three %>">
+          </form>
+        </td>
+      </tr>
+
+      <tr>
+        <td><center><h6><a href="<%= @recipe_four %>" target="_blank"><%= @title_four %></a></h6></center></td>
+        <td><center><%= @list_four %></center></td>
+        <td>
+          <form action="/create_option" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <!-- Dropdown for plan_id -->
+            <%= select_tag(:plan_id, options_from_collection_for_select(Plan.all, :id, :week_day), :class => "form-control") %>
+            <button class="btn btn-default btn-block">
+              Save
+            </button>
+            <!-- Hidden input for title -->
+            <input type="hidden" name="title" value="<%= @title_four %>">
+            <!-- Hidden input for ingredients (aka description in model) list -->
+            <input type="hidden" name="description" value="<%= @list_four %>">
+            <!-- Hidden input for recipe (aka source_link in model) -->
+            <input type="hidden" name="source_link" value="<%= @recipe_four %>">
+          </form>
+        </td>
+      </tr>
+
+      <tr>
+        <td><center><h6><a href="<%= @recipe_five %>" target="_blank"><%= @title_five %></a></h6></center></td>
+        <td><center><%= @list_five %></center></td>
+        <td><center>
+          <form action="/create_option" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+            <!-- Dropdown for plan_id -->
+            <%= select_tag(:plan_id, options_from_collection_for_select(Plan.all, :id, :week_day), :class => "form-control") %>
+            <button class="btn btn-default btn-block">
+              Save
+            </button>
+            <!-- Hidden input for title -->
+            <input type="hidden" name="title" value="<%= @title_five %>">
+            <!-- Hidden input for ingredients (aka description in model) list -->
+            <input type="hidden" name="description" value="<%= @list_five %>">
+            <!-- Hidden input for recipe (aka source_link in model) -->
+            <input type="hidden" name="source_link" value="<%= @recipe_five %>">
+          </form>
+        </center></td>
+      </tr>
+
+    </table>
+    <div class="btn-group btn-group-justified">
+      <a href="/foods/new" class="btn btn-default">
+        New Search
+      </a>
+      <a href="/plans" class="btn btn-default">
+        My Meal Plans
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</div>

@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @option.errors.any? %>
+  <% @option.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Option #<%= @option.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_option/<%= @option.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for plan_id -->
+      <div class="form-group">
+        <label for="plan_id" class="control-label">
+          Plan
+        </label>
+
+        <input type="text" id="plan_id" name="plan_id" placeholder="Plan" class="form-control" value="<%= @option.plan_id %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @option.title %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @option.description %></textarea>
+      </div>
+
+      <!-- Label and input for recipe -->
+      <div class="form-group">
+        <label for="recipe" class="control-label">
+          Recipe
+        </label>
+
+        <textarea id="recipe" name="recipe" placeholder="Recipe" class="form-control" rows="3"><%= @option.recipe %></textarea>
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @option.image %>">
+      </div>
+
+      <!-- Label and input for source_link -->
+      <div class="form-group">
+        <label for="source_link" class="control-label">
+          Source link
+        </label>
+
+        <input type="text" id="source_link" name="source_link" placeholder="Source link" class="form-control" value="<%= @option.source_link %>">
+      </div>
+
+      <!-- Label and input for difficulty -->
+      <div class="form-group">
+        <label for="difficulty" class="control-label">
+          Difficulty
+        </label>
+
+        <input type="text" id="difficulty" name="difficulty" placeholder="Difficulty" class="form-control" value="<%= @option.difficulty %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Option
+      </button>
+      or
+      <a href="/options/<%= @option.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

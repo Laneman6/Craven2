@@ -1,0 +1,52 @@
+<div class="page-header">
+  <h3>
+    Meals Plans for This Week
+  </h3>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <hr>
+
+    <table class="table table-striped table-hover">
+      <tr>
+        <th><h4><center>When</center></h4></th>
+        <th><h4><center>Action</h4></center></th>
+      </tr>
+
+      <% @plans.each do |plan| %>
+      <tr>
+        <td><h5><center><a href="/plans/<%= plan.id %>"><%= plan.week_day %></a></center></h5></td>
+        <td>
+          <center><a href="/delete_plan/<%= plan.id %>" class="btn btn-default" rel="nofollow"><i class="fa fa-times" aria-hidden="true"></i>  Delete</a></center>
+        </td>
+      </tr>
+      <% end %>
+
+    </table>
+
+    <hr>
+
+    <form action="/create_plan" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      <!-- Hidden input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+      <!-- Label and input for week_day -->
+      <div class="form-group">
+        <label for="week_day" class="control-label">
+          <h5><i><font color="grey">To Get Started, Select Day of the Week:</font></i></h5>
+        </label>
+        <p>
+          <%= select_tag(:week_day, options_for_select([['Monday'], ['Tuesday'], ['Wednesday'], ['Thursday'], ['Friday'], ['Saturday'], ['Sunday']], :selected => params[:week_day]), :class => "form-control") %>
+        </p>
+      </div>
+
+
+      <button class="btn btn-default btn-block">
+        Add New Plan
+      </button>
+    </div>
+  </div>
+</div>

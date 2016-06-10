@@ -1,0 +1,74 @@
+<div class="page-header">
+  <h3>Ingredients to work with...</h3> <h5><i>"Do what you can, with what you have, where you are."</i> - Theodore Roosevelt</h5>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+    <dd>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <form action="/foods/result">
+
+            <!-- Label and input for meal_category -->
+              <div class="form-group">
+                <label for="meal_category" class="meal_category">
+                  <h5>First, Select a Meal Category</h5>
+                <p><i><h6>Yes, breakfast for dinner is allowed.</h6></i></p>
+                </label>
+                <p>
+                  <%= select_tag(:meal_category, options_for_select([['Breakfast'], ['Brunch'], ['Lunch'], ['Dinner']], :selected => params[:category]), :class => "form-control") %>
+                </p>
+
+              </div>
+
+              <!-- Label and input for first_ingredient -->
+              <div class="form-group">
+                <label for="first_ingredient" class="control-label">
+                  <h5>Protein Ingredient</h5>
+                </label>
+                <input type="text" id="first_ingredient" name="first_ingredient" placeholder="(ex: beef, chicken, pork, etc..... just not tofu, never tofu.)" class="form-control">
+              </div>
+
+              <!-- Label and input for second_ingredient -->
+              <div class="form-group">
+                <label for="second_ingredient" class="control-label">
+                  <h5>Additional Ingredient</h5>
+                </label>
+                <input type="text" id="second_ingredient" name="second_ingredient" placeholder="(ex: lettuce, peppers, cheese, etc.)" class="form-control">
+              </div>
+
+              <!-- Label and input for third_ingredient -->
+              <div class="form-group">
+                <label for="third_ingredient" class="control-label">
+                  <h5>Additional Ingredient</h5>
+                </label>
+                <input type="text" id="third_ingredient" name="third_ingredient" placeholder="(ex: mustard, onions, bacon)" class="form-control">
+              </div>
+              <!-- Label and input for fourth_ingredient -->
+              <div class="form-group">
+                <label for="fourth_ingredient" class="control-label">
+                  <h5>Additional Ingredient</h5>
+                </label>
+                <input type="text" id="fourth_ingredient" name="fourth_ingredient" placeholder="(ex: noodles, rice, potatoes)" class="form-control">
+              </div>
+
+              <button class="btn btn-success">
+                Find Recipes!
+              </button>
+            </form>
+          </li>
+        </ul>
+      </dd>
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/plans" class="btn btn-default">
+        <i class="fa fa-calendar" aria-hidden="true"></i>  My Meal Plans
+      </a>
+      <a href="/foods/new" class="btn btn-default">
+        <i class="fa fa-refresh" aria-hidden="true"></i>  Clear Ingredients
+      </a>
+      </div>
+  </div>
+</div>
